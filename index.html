@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hehe:></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box {
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+        #no-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: top 0.3s, left 0.3s;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        /* Style for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 2rem;
+        }
+        .popup-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .popup-close {
+            cursor: pointer;
+            color: red;
+            float: right;
+            font-weight: bold;
+            font-size: x-large;
+        }
+        .popup-close:hover {
+            color: darkred;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 500;
+        }
+        .yes {
+            border-radius: 2rem;
+            background: linear-gradient(to bottom right , rgb(137, 234, 137) , rgb(104, 233, 104));
+            color: white;
+        }
+        .no {
+            background: red;
+            color: white;
+            border-radius: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Bạn có muốn giai cuu canhdeptraiproconhieuemhangxomtheo không?</h1>
+    <button class="btn yes" onclick="showPopup()">Có</button>
+    <button class="btn no" id="no-btn" onclick="moveButton()">Không</button>
+    </div>
+
+    <!-- Popup notification -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <span class="popup-close" onclick="closePopup()">X</span>
+        <div class="popup-header">Great</div>
+        <p>T biết m là richer mà dưới đây là ảnh của nó : (eheboy:>)</p>
+        <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly207y0svn4p4a.webp" onclick="window.open('https://shopee.vn/V%E1%BB%A3t-C%E1%BA%A7u-L%C3%B4ng-%C4%90%C6%A1n-Winstar-You-Long-C%C4%83ng-S%E1%BA%B5n-11Kg_4U-V%E1%BB%A3t-Carbon-100-Cao-C%E1%BA%A5p-SI%C3%AAu-B%E1%BB%81n-Si%C3%AAu-Nh%E1%BA%B9-%C4%90%E1%BB%99-B%E1%BB%81n-Cao-i.90447278.24464316327?sp_atk=4ab5bc21-3ebe-46ec-9ffc-a6f8f1ae6779&xptdk=4ab5bc21-3ebe-46ec-9ffc-a6f8f1ae6779')" height="300px" alt="">
+        
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function moveButton() {
+            const button = document.getElementById('no-btn');
+            const randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
